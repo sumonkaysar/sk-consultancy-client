@@ -1,13 +1,14 @@
 import { Button, Navbar } from "flowbite-react";
-import { Link, NavLink, useLinkClickHandler } from "react-router-dom";
-import logo from '../../../assets/logo.png';
+import { Link, NavLink } from "react-router-dom";
+import logo from '../../../assets/logo/logo.png';
 
 const Header = () => {
   const style = {
     color: '#1a56db'
   }
+
   return (
-    <div className="bg-white">
+    <div className="bg-white fixed top-0 w-full">
       <div className="container mx-auto">
         <Navbar
           fluid={true}
