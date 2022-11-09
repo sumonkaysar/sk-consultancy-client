@@ -1,0 +1,9 @@
+.serviceCard img{
+  height: 180px;
+  object-fit: cover;
+}
+
+.viewFullImage{
+  height: 180px;
+  /* width: calc(100% + 48px); */
+}

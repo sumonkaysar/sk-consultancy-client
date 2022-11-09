@@ -8,7 +8,7 @@ const Header = () => {
   }
 
   return (
-    <div className="bg-white fixed top-0 w-full">
+    <div className="bg-white fixed top-0 w-full z-20">
       <div className="container mx-auto">
         <Navbar
           fluid={true}

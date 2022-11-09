@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Strategy consulting",
+    "img": "https://www.epsilonconsulting.co/images/About/stratergy.jpg",
+    "rating": "4.5",
+    "price": 120,
+    "about": "Strategy consultants advise organisations on high-level decisions in an unbiased fashion, using deep industry knowledge to deliver the best results. It is a type of Management Consulting, which generally implies advising at the highest-level of a company. Strategy consultants work across every industry, with private and public sector bodies on a wide range of issues. For example, a company is looking to save money in a shrinking market, so it decides to close one of it's manufacturing plants. They want to know if this is a worthwhile course of action, which of their plants should be closed, how much money it will save them, how much it will cost them, and how they should restructure their supply chain to manage this loss of production - this is where a strategic consultant comes in."
+  },
+  {
+    "name": "Marketing consulting",
+    "img": "https://consultyasser.com/wp-content/uploads/2018/02/marketing-strategy-1024x640.jpg",
+    "rating": "4.6",
+    "price": 150,
+    "about": "Marketing consulting is considered as professional services provided by experienced and qualified experts in the field of marketing. While marketing teams and agencies are usually focused on implementation and execution, the marketing consultants are specialized in strategy, auditing, and analytics. A marketing consultant is responsible for defining marketing strategies, identifying the most appropriate message, and executing these strategies for businesses. They study the company profile and operations to understand its marketing needs and conduct marketing research to identify industry trends and commercial opportunities. Marketing consultants are up-to-date with trends in social media marketing, online marketing, and direct response marketing. The majority of marketing consultants are employed by marketing agencies varying in size within different companies and industries."
+  },
+  {
+    "name": "Operations consulting",
+    "img": "https://cdn.openpr.com/T/a/Ta21754001_g.jpg",
+    "rating": "4.2",
+    "price": 110,
+    "about": "Operations consulting, also referred to as operations management, is defined as advisory and/or implementation services that improve a company's internal operations and performance in the value chain. Operations management consulting projects create more effective client operations by advising on and supporting with the implementation of changes to target operating model, functional business processes, management systems, culture and other elements part of the value chain. The market for operations consulting and management services consists of eight disciplines: Organisational Operations, Sales & Marketing, Supply Chain, Sourcing & Procurement, Finance, Business Process Management, Research & Development and Outsourcing. Organisational Operations focuses on improving the performance of all aspects that support the organisation's structure; including organisation design, governance (across functions and departments), roles and responsibilities, and employee performance. Typical activities relate either to the implementation of organisational strategies, such as workforce optimisation or the redesign of employee roles, or are prompted by an event or crisis situation, such as a merger or a transition as part of a broader corporate restructuring effort."
+  },
+  {
+    "name": "Financial consulting",
+    "img": "https://media.slidesgo.com/storage/1582874/conversions/0-financial-consulting-thumb.jpg",
+    "rating": "4.8",
+    "price": 180,
+    "about": "Financial consulting is a service provided by Certified Financial Consultants to large corporations, government agencies and individual clients. The role of a financial consultant is to provide an independent, expert opinion on a proposed business plan or decision. There are two main types of financial consulting: business and personal. Companies who require expertise in accounting, finance, insurance and other aspects of finance hire a business financial consultant. Individual clients use the services of financial consultants to manage their investments, property holdings and long-term financial plans. The skills required for these two roles are slightly different, as are the client expectations. A Certified Financial Consultant(CFC) is a professional designation obtained from The Institute of Financial Consultants, upon successful completion of an education program and examination. This designation is internationally recognized and is an important professional credential to obtain a position in this field. CFC's are required to complete professional development courses each year to ensure they are up-to-date on the latest theories and business practices."
+  },
+  {
+    "name": "Leadership consulting",
+    "img": "https://peopledevelopmentmagazine.com/wp-content/uploads/2020/12/Leadership-Is-An-Art-People-Development-Magazine.jpg",
+    "rating": "4.7",
+    "price": 150,
+    "about": "Leadership consulting is a business service that engages in the evaluation of current management and supervisory strategies and assists the corporation in developing inherent leadership qualities among both managers and employees in general. The goal of effective leadership consulting is to help companies operate at maximum efficiency by properly utilizing the skills and talents already present within the organization to best advantage. To this end, the process of developing leaders may involve securing additional training for specific employees as well as making changes to the current business culture. Consultants that specialize in the development of leadership skills and strategies are often called in when a company appears to have reached an impasse in the growth of the business. The consultant spends time looking at each level of function within the business and how those functions relate to one another. At the same time, the consultant will evaluate the current management or leadership style displayed at various levels within the organization. Based on the results of this evaluation, the consultant develops a course of action for enhancing the leadership of managers, department heads, and supervisors so the company can continue to grow."
+  },
+  {
+    "name": "Leadership consulting",
+    "img": "https://www.ceo-review.com/wp-content/uploads/2021/07/Compliance-consultant.jpg",
+    "rating": "4.7",
+    "price": 150,
+    "about": "Compliance consulting is arguably the most important area that businesses need to take care of, especially when the business experiences any kind of rapid growth. This is simply because an expert compliance consultant ensures that your business is operating legally and following all the relevant regulations. They have both the regulatory and in-house expertise to support your business through every step of the process. Financial Services Compliance CC t/a Compliance Consulting renders compliance risk management and advisory services to all parties requiring assistance iro any aspect of a compliance function and/or the management of compliance risk. Compliance risk is a composite risk with particular focus on regulatory and reputation risk. In an ever-increasing complicated regulatory environment, compliance risk management has become essential either due to statutory requirements or as a requirement of global best practice and corporate governance."
+  }
+]
