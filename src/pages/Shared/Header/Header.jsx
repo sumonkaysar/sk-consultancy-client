@@ -11,14 +11,15 @@ const Header = () => {
   const handleLogout = () => {
     logout()
       .then(result => {
+        console.log("Logged Out");
         navigate("/login");
       })
       .catch(err => console.error(err))
   };
 
-  const style = {
-    color: '#1a56db'
-  }
+  // const style = {
+  //   color: '#1a56db'
+  // }
 
   return (
     <div className="bg-white fixed top-0 w-full z-20">
@@ -59,8 +60,11 @@ const Header = () => {
             </NavLink>
             {
               user?.uid ? <>
-                <NavLink to="profile">
-                  Profile
+                <NavLink to="/my-reviews">
+                  My Reviews
+                </NavLink>
+                <NavLink to="/add-service">
+                  Add Service
                 </NavLink>
                 <div className="mt-1 md:hidden">
                   <Button size="xs" onClick={handleLogout}>
@@ -68,7 +72,7 @@ const Header = () => {
                   </Button>
                 </div>
               </> :
-                <NavLink to="login">
+                <NavLink to="/login">
                   Login
                 </NavLink>
             }

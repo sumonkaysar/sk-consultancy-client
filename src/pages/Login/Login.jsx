@@ -22,6 +22,7 @@ const Login = () => {
 
     login({email, password})
     .then(result => {
+      form.reset();
       navigate("/");
     })
     .catch(err => console.error(err));

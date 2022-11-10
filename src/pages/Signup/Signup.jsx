@@ -16,6 +16,7 @@ const Signup = () => {
     signup({email, password})
     .then(result => {
       console.log(result.user);
+      form.reset();
       navigate("/");
     })
     .catch(err => console.error(err))
