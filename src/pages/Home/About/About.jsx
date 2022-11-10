@@ -5,7 +5,7 @@ const About = () => {
 
   return (
     <div className="container mx-auto">
-      <h3 className="text-center text-xl md:text-3xl font-semibold underline mt-8 mb-6">About</h3>
+      <h3 className="text-center text-xl md:text-3xl font-semibold underline mt-16 mb-6">About</h3>
       <div className="sm:flex items-center gap-5 mx-5">
         <div className='about-img flex-1 lg:flex-auto'>
           <div className='bg-slate-400 rounded-xl mx-8 sm:mx-0'>
