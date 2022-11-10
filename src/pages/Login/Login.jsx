@@ -1,23 +1,34 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { Button, Label, TextInput } from "flowbite-react";
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { VscGithub } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import "./Login.css";
 
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const Login = () => {
   const {providerLogin} = useContext(AuthContext);
+  const navigate = useNavigate()
 
-  const handleProviderLogin = loginWith => {
+  const handleGoogleLogin = () => {
     providerLogin(googleProvider)
     .then(result => {
-      console.log(result.user);
+      navigate("/")
+    })
+    .catch(err => console.log(err))
+  };
+
+  const handleGithubLogin = () => {
+    providerLogin(githubProvider)
+    .then(result => {
+      navigate("/")
     })
     .catch(err => console.error(err))
-  }
+  };
 
   return (
     <div className="container mx-auto py-8">
@@ -57,7 +68,7 @@ const Login = () => {
         <p className="text-center font-semibold text-slate-700 my-3">Or</p>
         <div>
           <Button
-          onClick={() => handleProviderLogin('google')}
+          onClick={handleGoogleLogin}
             className="providerLoginBtn w-full"
             outline={true}
             gradientDuoTone="purpleToBlue"
@@ -68,6 +79,7 @@ const Login = () => {
         </div>
         <div className="mt-2">
           <Button
+            onClick={handleGithubLogin}
             className="providerLoginBtn w-full"
             outline={true}
             gradientDuoTone="purpleToPink"
