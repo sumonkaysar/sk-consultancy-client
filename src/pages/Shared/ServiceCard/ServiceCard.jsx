@@ -1,11 +1,11 @@
 import { Card } from "flowbite-react";
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
-import 'react-photo-view/dist/react-photo-view.css';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { PhotoView } from 'react-photo-view';
+import { Link } from "react-router-dom";
 import './ServiceCard.css';
 
 const ServiceCard = ({ service }) => {
-  const { name, img, rating, price, about } = service;
+  const { _id, name, img, rating, price, about } = service;
 
   return (
       <Card
@@ -42,12 +42,12 @@ const ServiceCard = ({ service }) => {
         </span>
       </div>
       <div >
-        <a
-          to="#"
+        <Link
+          to={`/services/${_id}`}
           className="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           View Details
-        </a>
+        </Link>
       </div>
     </Card>
   );
