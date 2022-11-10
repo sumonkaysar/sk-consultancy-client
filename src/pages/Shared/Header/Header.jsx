@@ -37,7 +37,10 @@ const Header = () => {
             >
               Home
             </NavLink>
-            <NavLink to="services">
+            <NavLink
+              to="services"
+              style={(isActive) => isActive ? style : ''}
+            >
               Services
             </NavLink>
             <NavLink to="login">
