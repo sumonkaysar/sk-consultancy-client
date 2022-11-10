@@ -1,8 +1,21 @@
 import { Button, Navbar } from "flowbite-react";
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from '../../../assets/logo/logo.png';
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout()
+      .then(result => {
+        navigate("/login");
+      })
+      .catch(err => console.error(err))
+  };
+
   const style = {
     color: '#1a56db'
   }
@@ -18,37 +31,47 @@ const Header = () => {
             <img
               src={logo}
               className="mr-3 h-6 sm:h-9"
-              alt="Flowbite Logo"
+              alt="Logo"
             />
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
               SK Consultancy
             </span>
           </Link>
           <div className="flex md:order-2">
-            <Button>
-              Logout
-            </Button>
+            {
+              user?.uid &&
+              <Button className="hidden md:block" onClick={handleLogout}>
+                Logout
+              </Button>
+            }
             <Navbar.Toggle />
           </div>
           <Navbar.Collapse>
             <NavLink
               to="/"
-              style={(isActive) => isActive ? style : ''}
             >
               Home
             </NavLink>
             <NavLink
               to="services"
-              style={(isActive) => isActive ? style : ''}
             >
               Services
             </NavLink>
-            <NavLink to="login">
-              Login
-            </NavLink>
-            <NavLink to="profile">
-              Profile
-            </NavLink>
+            {
+              user?.uid ? <>
+                <NavLink to="profile">
+                  Profile
+                </NavLink>
+                <div className="mt-1 md:hidden">
+                  <Button size="xs" onClick={handleLogout}>
+                    Logout
+                  </Button>
+                </div>
+              </> :
+                <NavLink to="login">
+                  Login
+                </NavLink>
+            }
           </Navbar.Collapse>
         </Navbar>
       </div>

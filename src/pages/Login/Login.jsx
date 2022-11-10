@@ -3,7 +3,7 @@ import { Button, Label, TextInput } from "flowbite-react";
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { VscGithub } from "react-icons/vsc";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import "./Login.css";
 
@@ -11,13 +11,26 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const Login = () => {
-  const {providerLogin} = useContext(AuthContext);
-  const navigate = useNavigate()
+  const {login, providerLogin} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogin = e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    login({email, password})
+    .then(result => {
+      navigate("/");
+    })
+    .catch(err => console.error(err));
+  }
 
   const handleGoogleLogin = () => {
     providerLogin(googleProvider)
     .then(result => {
-      navigate("/")
+      navigate("/");
     })
     .catch(err => console.log(err))
   };
@@ -25,7 +38,7 @@ const Login = () => {
   const handleGithubLogin = () => {
     providerLogin(githubProvider)
     .then(result => {
-      navigate("/")
+      navigate("/");
     })
     .catch(err => console.error(err))
   };
@@ -33,7 +46,7 @@ const Login = () => {
   return (
     <div className="container mx-auto py-8">
       <div className="w-96 mx-auto bg-slate-200 p-5 pb-8 rounded-lg">
-        <form>
+        <form onSubmit={handleLogin}>
           <h2 className="text-2xl font-semibold text-center">Login</h2>
           <div>
             <div className="mb-2 block">
@@ -44,6 +57,7 @@ const Login = () => {
             </div>
             <TextInput
               id="email"
+              name="email"
               type="email"
               required={true}
             />
@@ -51,12 +65,13 @@ const Login = () => {
           <div className="mt-2 mb-4">
             <div className="mb-2 block">
               <Label
-                htmlFor="password1"
+                htmlFor="password"
                 value="Your password"
               />
             </div>
             <TextInput
-              id="password1"
+              id="password"
+              name="password"
               type="password"
               required={true}
             />
@@ -88,6 +103,7 @@ const Login = () => {
             Github
           </Button>
         </div>
+        <p className="text-center text-sm mt-2">Don't have an account? <Link className="text-blue-700 font-semibold hover:underline" to="/signup">Signup Here</Link></p>
       </div>
     </div>
   );
