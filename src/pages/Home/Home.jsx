@@ -1,4 +1,6 @@
+import About from "./About/About";
 import Banner from "./Banner/Banner";
+import Contact from "./Contact/Contact";
 import Services from "./Services/Services";
 
 const Home = () => {
@@ -7,6 +9,8 @@ const Home = () => {
     <div className="container mx-auto">
       <Banner />
       <Services />
+      <About />
+      <Contact />
     </div>
   );
 }

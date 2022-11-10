@@ -1,0 +1,9 @@
+@media screen and (min-width: 1024px) and (max-width: 1279.99px) {
+  .about-img{
+    flex: 1;
+  }
+  
+  .about-details{
+    flex: 4;
+  }
+}
