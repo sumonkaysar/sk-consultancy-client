@@ -19,7 +19,7 @@ const MyReviews = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/my-reviews/${user?.email}`, {
+    fetch(`https://sk-consultancy-server.vercel.app/my-reviews/${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('sk-consultancy-token')}`
       }
@@ -41,7 +41,7 @@ const MyReviews = () => {
     if (proceed) {
       setShow(false);
 
-      fetch(`http://localhost:5000/my-reviews/${reviewedId}`, {
+      fetch(`https://sk-consultancy-server.vercel.app/my-reviews/${reviewedId}`, {
         method: 'DELETE'
       })
         .then(res => res.json())
@@ -74,7 +74,7 @@ const MyReviews = () => {
     }
     setShowUpdate(false);
 
-    fetch(`http://localhost:5000/my-reviews/${reviewedId}`, {
+    fetch(`https://sk-consultancy-server.vercel.app/my-reviews/${reviewedId}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'

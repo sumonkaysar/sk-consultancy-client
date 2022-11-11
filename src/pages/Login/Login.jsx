@@ -28,7 +28,7 @@ const Login = () => {
     login({email, password})
     .then(result => {
       form.reset();
-      fetch('http://localhost:5000/jwt', {
+      fetch('https://sk-consultancy-server.vercel.app/jwt', {
         method: "POST",
         headers: {
           'content-type': 'application/json'
