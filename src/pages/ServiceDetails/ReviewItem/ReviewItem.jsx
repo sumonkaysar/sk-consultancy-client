@@ -2,7 +2,8 @@ import { Avatar } from "flowbite-react";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const ReviewItem = ({review}) => {
-  const {reviewText, reviewerName, reviewerEmail, reviewerAvatar} = review;
+  const {reviewText, reviewerDisplayName, reviewerAvatar} = review;
+  console.log(reviewerAvatar);
 
   return (
     <div className="flex h-full items-center justify-center">
@@ -17,7 +18,7 @@ const ReviewItem = ({review}) => {
           img={reviewerAvatar}
           rounded={true}
         />
-        <h3 className="text-2xl">{reviewerName}</h3>
+        <h3 className="text-2xl">{reviewerDisplayName}</h3>
       </div>
     </div>
   );

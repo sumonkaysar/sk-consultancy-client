@@ -3,7 +3,6 @@ import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
 import {HashLoader} from "react-spinners";
 
-
 const PrivateRoute = ({children}) => {
   const {user, loading} = useContext(AuthContext);
   const location = useLocation();

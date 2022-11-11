@@ -1,4 +1,4 @@
-import { Button, Label, Textarea, Toast } from "flowbite-react";
+import { Button, Label, Textarea } from "flowbite-react";
 import toast from 'react-hot-toast';
 
 const AddReview = ({user, id, name}) => {
@@ -8,7 +8,7 @@ const AddReview = ({user, id, name}) => {
     const reviewText = e.target.review.value;
     const reviewerDisplayName = user?.displayName;
     const reviewerEmail = user?.email;
-    const reviewerAvatar = user?.PhotoURL;
+    const reviewerAvatar = user?.photoURL;
 
     const review = {
       reviewText,
@@ -33,7 +33,7 @@ const AddReview = ({user, id, name}) => {
         toast.success("Review added Successfully");
       }
     })
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
   }
 
   return (

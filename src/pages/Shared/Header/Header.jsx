@@ -1,18 +1,16 @@
 import { Button, Navbar } from "flowbite-react";
 import { useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/logo/logo.png';
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout()
       .then(result => {
         console.log("Logged Out");
-        navigate("/login");
       })
       .catch(err => console.error(err))
   };
@@ -54,9 +52,14 @@ const Header = () => {
               Home
             </NavLink>
             <NavLink
-              to="services"
+              to="/services"
             >
               Services
+            </NavLink>
+            <NavLink
+              to="/blog"
+            >
+              Blog
             </NavLink>
             {
               user?.uid ? <>

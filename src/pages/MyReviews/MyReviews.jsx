@@ -19,7 +19,11 @@ const MyReviews = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`https://sk-consultancy-server.vercel.app/my-reviews/${user?.email}`)
+    fetch(`http://localhost:5000/my-reviews/${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('sk-consultancy-token')}`
+      }
+    })
       .then(res => res.json())
       .then(data => {
         setMyReviews(data);

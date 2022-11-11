@@ -1,5 +1,5 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import { Button, Label, TextInput } from "flowbite-react";
+import { Button, Label, Spinner, TextInput } from "flowbite-react";
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { VscGithub } from "react-icons/vsc";
@@ -17,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   // set location from state property
-  const from = location.state?.from?.pathname || '/';
+  const from = location?.state?.from?.pathname || '/';
 
   const handleLogin = e => {
     e.preventDefault();
@@ -28,6 +28,18 @@ const Login = () => {
     login({email, password})
     .then(result => {
       form.reset();
+      fetch('http://localhost:5000/jwt', {
+        method: "POST",
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({user: {email}}),
+      })
+      .then(res => res.json())
+      .then(data => {
+        localStorage.setItem('sk-consultancy-token', data.token);
+      })
+      .catch(err => console.error(err))
       navigate(from, { replace: true });
     })
     .catch(err => console.error(err));
