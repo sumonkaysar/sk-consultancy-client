@@ -2,9 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
+import MyReviews from "../pages/MyReviews/MyReviews";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import Services from "../pages/Services/Services";
 import Signup from "../pages/Signup/Signup";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -29,8 +31,12 @@ const routes = createBrowserRouter([
       },
       {
         path: 'services/:id',
-        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+        loader: ({params}) => fetch(`https://sk-consultancy-server.vercel.app/services/${params.id}`),
         element: <ServiceDetails />,
+      },
+      {
+        path: 'my-reviews',
+        element: <PrivateRoute><MyReviews /></PrivateRoute>,
       },
     ]
   }

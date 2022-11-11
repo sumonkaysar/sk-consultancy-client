@@ -1,0 +1,15 @@
+.reviews-carousel button span{
+  background-color: #1a56db;
+}
+
+.reviews-carousel .group:hover .group-hover\:bg-white\/50{
+  background-color: #2289ff;
+}
+
+.reviews-carousel .bg-white{
+  background-color: #1a56db;
+}
+
+.reviews-carousel .bg-white\/50{
+  background-color: #757575;
+}

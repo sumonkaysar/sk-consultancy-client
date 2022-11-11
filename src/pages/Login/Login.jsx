@@ -11,8 +11,11 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const Login = () => {
-  const {login, providerLogin} = useContext(AuthContext);
+  const {login, providerLogin, loading} = useContext(AuthContext);
   const navigate = useNavigate();
+
+  // set location from state property
+  const from = location.state?.from?.pathname || '/';
 
   const handleLogin = e => {
     e.preventDefault();
@@ -23,7 +26,7 @@ const Login = () => {
     login({email, password})
     .then(result => {
       form.reset();
-      navigate("/");
+      navigate(from, { replace: true });
     })
     .catch(err => console.error(err));
   }
@@ -31,7 +34,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     providerLogin(googleProvider)
     .then(result => {
-      navigate("/");
+      navigate(from, { replace: true });
     })
     .catch(err => console.log(err))
   };
@@ -39,14 +42,14 @@ const Login = () => {
   const handleGithubLogin = () => {
     providerLogin(githubProvider)
     .then(result => {
-      navigate("/");
+      navigate(from, { replace: true });
     })
     .catch(err => console.error(err))
   };
 
   return (
     <div className="container mx-auto py-8">
-      <div className="w-96 mx-auto bg-slate-200 p-5 pb-8 rounded-lg">
+      <div className="w-96 mx-auto bg-slate-200 p-5 pb-8 rounded-lg drop-shadow-2xl">
         <form onSubmit={handleLogin}>
           <h2 className="text-2xl font-semibold text-center">Login</h2>
           <div>
@@ -78,7 +81,15 @@ const Login = () => {
             />
           </div>
           <Button className="w-full" type="submit">
-            Login
+            {
+              loading ? <>
+              <Spinner
+                size="sm"
+                light={true}
+                className="mr-2"
+              />
+              loading ...</> : "Login"
+            }
           </Button>
         </form>
         <p className="text-center font-semibold text-slate-700 my-3">Or</p>

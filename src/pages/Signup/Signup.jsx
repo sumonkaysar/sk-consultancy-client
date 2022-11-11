@@ -24,7 +24,7 @@ const Signup = () => {
 
   return (
     <div className="container mx-auto py-8">
-      <div className="w-96 mx-auto bg-slate-200 p-5 pb-8 rounded-lg">
+      <div className="w-96 mx-auto bg-slate-200 p-5 pb-8 rounded-lg drop-shadow-2xl">
         <form onSubmit={handleSubmit}>
           <h2 className="text-2xl font-semibold text-center">Signup</h2>
           <div>
