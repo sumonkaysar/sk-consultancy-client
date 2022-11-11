@@ -1,4 +1,5 @@
-import { Button, Label, Textarea } from "flowbite-react";
+import { Button, Label, Textarea, Toast } from "flowbite-react";
+import toast from 'react-hot-toast';
 
 const AddReview = ({user, id, name}) => {
 
@@ -29,7 +30,7 @@ const AddReview = ({user, id, name}) => {
     .then(data => {
       if(data.acknowledged){
         e.target.reset();
-        alert("Added review");
+        toast.success("Review added Successfully");
       }
     })
     .catch(err => console.error(err))

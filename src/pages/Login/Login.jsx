@@ -5,12 +5,14 @@ import { FcGoogle } from "react-icons/fc";
 import { VscGithub } from "react-icons/vsc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 import "./Login.css";
 
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const Login = () => {
+  useTitle("Login");
   const {login, providerLogin, loading} = useContext(AuthContext);
   const navigate = useNavigate();
 
