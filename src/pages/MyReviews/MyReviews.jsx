@@ -1,9 +1,14 @@
-import { Button, Table } from "flowbite-react";
+import { Button, Modal, Table } from "flowbite-react";
 import { useContext, useEffect, useState } from "react";
+import { FaCheckCircle, FaInfo, FaInfoCircle } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import MyReviewTr from "./MyReviewTr/MyReviewTr";
 
 const MyReviews = () => {
+  const [reviewedId, setReviewedId] = useState(null);
+  const [reviewedService, setReviewedService] = useState(null);
+  const [show, setShow] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [myReviews, setMyReviews] = useState([]);
   const { user } = useContext(AuthContext);
 
@@ -11,11 +16,37 @@ const MyReviews = () => {
     fetch(`https://sk-consultancy-server.vercel.app/my-reviews/${user?.email}`)
       .then(res => res.json())
       .then(data => {
-        setMyReviews(data)
-        console.log(data);
+        setMyReviews(data);
       })
       .catch(err => console.error(err))
   }, [user?.email]);
+
+  const handleDelete = (id, serviceName) => {
+    setReviewedService(serviceName);
+    setShow(true);
+    setReviewedId(id);
+  }
+
+  const confirmDelete = (proceed) => {
+    if (proceed) {
+      setShow(false);
+
+      fetch(`http://localhost:5000/my-reviews/${reviewedId}`, {
+        method: 'DELETE'
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.deletedCount > 0) {
+            const remaining = myReviews.filter(review => review._id !== reviewedId);
+            setMyReviews(remaining);
+            setShowSuccess(true);
+          }
+        })
+        .catch(err => console.error(err));
+    } else {
+      setShow(false);
+    }
+  }
 
   return (
     <div className="container mx-auto">
@@ -37,14 +68,74 @@ const MyReviews = () => {
               myReviews.map(review => <MyReviewTr
                 key={review._id}
                 review={review}
+                handleDelete={handleDelete}
               />)
             }
           </Table.Body>
-        </Table> : 
+        </Table> :
         <div className="w-full pt-[62px] mt-[-172px] mb-[-62px] h-screen flex items-center justify-center">
           <h1 className="text-center font-semibold text-xl md:text-4xl">No reviews were added</h1>
         </div>
       }
+      <div>
+        <Modal
+          show={show}
+          size="md"
+          popup={true}
+          onClose={() => setShow(false)}
+          className="h-[100vh]"
+        >
+          <Modal.Header />
+          <Modal.Body>
+            <div className="text-center">
+              <FaInfoCircle className="text-red-700 mx-auto text-5xl mb-4" />
+              <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                Are you sure you want to delete this service: {reviewedService}?
+              </h3>
+              <div className="flex justify-center gap-4">
+                <Button
+                  color="failure"
+                  onClick={() => confirmDelete(true)}
+                >
+                  Yes, I'm sure
+                </Button>
+                <Button
+                  color="gray"
+                  onClick={() => confirmDelete(false)}
+                >
+                  No, cancel
+                </Button>
+              </div>
+            </div>
+          </Modal.Body>
+        </Modal>
+      </div>
+      <div>
+        <Modal
+          show={showSuccess}
+          size="md"
+          popup={true}
+          onClose={() => setShowSuccess(false)}
+          className="h-[100vh]"
+        >
+          <Modal.Header />
+          <Modal.Body>
+            <div className="text-center">
+              <FaCheckCircle className="text-green-700 mx-auto text-5xl mb-4" />
+              <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                Deleted Successfully!
+              </h3>
+              <div className="flex justify-center gap-4">
+                <Button
+                  onClick={() => setShowSuccess(false)}
+                >
+                  Done
+                </Button>
+              </div>
+            </div>
+          </Modal.Body>
+        </Modal>
+      </div>
     </div>
   );
 }

@@ -16,8 +16,7 @@ const Reviews = () => {
     fetch(`https://sk-consultancy-server.vercel.app/reviews/${_id}`)
       .then(res => res.json())
       .then(data => {
-        setReviews(data)
-        console.log(data);
+        setReviews(data);
       })
       .catch(err => console.error(err))
   }, [_id]);
