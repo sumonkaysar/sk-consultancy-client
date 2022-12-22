@@ -1,5 +1,6 @@
 import { Button, Label, Spinner, TextInput } from "flowbite-react";
 import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/UseTitle";
@@ -18,6 +19,7 @@ const Signup = () => {
     signup({email, password})
     .then(result => {
       console.log(result.user);
+      toast.success("Account created successfully");
       form.reset();
       navigate("/");
     })

@@ -10,7 +10,6 @@ const ServiceDetails = () => {
     <div className="container mx-auto lg:pt-5">
       <Service />
       <Reviews />
-      <Toaster />
     </div>
   );
 }

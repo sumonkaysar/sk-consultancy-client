@@ -213,7 +213,6 @@ const MyReviews = () => {
           </Modal.Body>
         </Modal>
       </div>
-      <Toaster />
     </div>
   );
 }

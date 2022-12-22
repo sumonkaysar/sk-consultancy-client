@@ -1,5 +1,6 @@
 import { Button, Navbar } from "flowbite-react";
 import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/logo/logo.png';
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
@@ -11,6 +12,7 @@ const Header = () => {
     logout()
       .then(result => {
         console.log("Logged Out");
+        toast.success("Logged Out")
       })
       .catch(err => console.error(err))
   };

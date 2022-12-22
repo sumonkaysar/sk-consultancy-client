@@ -1,6 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { Button, Label, Spinner, TextInput } from "flowbite-react";
 import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { VscGithub } from "react-icons/vsc";
 import { Link, useNavigate } from "react-router-dom";
@@ -28,6 +29,7 @@ const Login = () => {
     login({email, password})
     .then(result => {
       form.reset();
+      toast.success("Successfully Logged In");
       fetch('https://sk-consultancy-server.vercel.app/jwt', {
         method: "POST",
         headers: {
@@ -48,6 +50,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     providerLogin(googleProvider)
     .then(result => {
+      toast.success("Successfully Logged In");
       navigate(from, { replace: true });
     })
     .catch(err => console.log(err))
@@ -56,6 +59,7 @@ const Login = () => {
   const handleGithubLogin = () => {
     providerLogin(githubProvider)
     .then(result => {
+      toast.success("Successfully Logged In");
       navigate(from, { replace: true });
     })
     .catch(err => console.error(err))
